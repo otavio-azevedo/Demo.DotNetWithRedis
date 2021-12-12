@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    command: redis-server --requirepass Redis2021!
+    ports:
+      - "6379:6379"
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    ports:
+        - "1433:1433"
+    environment:
+      SA_PASSWORD: "SqlServer2021!"
+      ACCEPT_EULA: "Y"
+      
